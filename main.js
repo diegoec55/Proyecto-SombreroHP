@@ -1,3 +1,6 @@
+import { final } from "./js/puntosFinal.js";
+import { puntaje } from "./js/calcularPuntaje.js";
+
 let gryffindor = 0;
 let slytherin = 0;
 let ravenclaw = 0;
@@ -58,7 +61,7 @@ function mostrarPregunta() {
         boton.addEventListener("click", () => {
             console.log(`Elegiste: ${actual[`preg${a}`]}`);
             console.log(key);
-            puntaje(key)
+            puntaje(key, gryffindor, slytherin, ravenclaw, hufflepuff)
             indice++;
 
             if (indice < pregunta.length) {
@@ -97,44 +100,8 @@ function mostrarPregunta() {
 
 mostrarPregunta();
 
-function puntaje(respuesta) {
-    switch (respuesta) {
-        case "preg1":
-            gryffindor++;
-            break;
-        case "preg2":
-            slytherin++;
-            break;
-        case "preg3":
-            ravenclaw++;
-            break;
-        case "preg4":
-            hufflepuff++;
-            break;
-    }
-
-    console.log(gryffindor, slytherin, ravenclaw, hufflepuff);
-
-    return (gryffindor, slytherin, ravenclaw, hufflepuff)
-}
 
 
-function final(g, s, r, h) {
-    let maxpuntos = Math.max(g, s, r, h);
-    let resultadoCasa = "";
 
-    if (maxpuntos === g) {
-        resultadoCasa = "Gryffindor";
-    } else if (maxpuntos === s) {
-        resultadoCasa = "Slytherin";
-    } else if (maxpuntos === r) {
-        resultadoCasa = "Ravenclaw";
-    } else if (maxpuntos === h) {
-        resultadoCasa = "Hufflepuff";
-    }
-    console.log(g, s, r, h);
-    console.log(`El ganador es: ${resultadoCasa}`);
-    return resultadoCasa
 
-}
 
