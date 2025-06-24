@@ -1,10 +1,12 @@
 import { final } from "./js/puntosFinal.js";
 import { puntaje } from "./js/calcularPuntaje.js";
 
-let gryffindor = 0;
-let slytherin = 0;
-let ravenclaw = 0;
-let hufflepuff = 0;
+let puntajes = {
+    gryffindor:0,
+    slytherin:0,  
+    ravenclaw:0,
+    hufflepuff:0,
+}
 
 const pregunta = [
     "¿Qué cualidad valoras más?",
@@ -61,13 +63,15 @@ function mostrarPregunta() {
         boton.addEventListener("click", () => {
             console.log(`Elegiste: ${actual[`preg${a}`]}`);
             console.log(key);
-            puntaje(key, gryffindor, slytherin, ravenclaw, hufflepuff)
+            puntaje(key, puntajes)
+            // console.log(gryffindor, slytherin, ravenclaw, hufflepuff);
+            
             indice++;
 
             if (indice < pregunta.length) {
                 mostrarPregunta();
             } else {
-                const nombreCasaFinal = final(gryffindor, slytherin, ravenclaw, hufflepuff)
+                const nombreCasaFinal = final(puntajes.gryffindor, puntajes.slytherin, puntajes.ravenclaw, puntajes.hufflepuff)
                 qatext.innerText = `Te pondré en... ${nombreCasaFinal}`;
                 listaBoton.innerHTML = "";
                 if (nombreCasaFinal === "Gryffindor") {

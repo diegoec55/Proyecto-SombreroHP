@@ -1,22 +1,23 @@
 
 
-export function puntaje(respuesta, gryffindor, slytherin, ravenclaw, hufflepuff) {
+export function puntaje(respuesta, puntajes) {
+    
+    
     switch (respuesta) {
         case "preg1":
-            gryffindor++;
+            puntajes.gryffindor++;
             break;
         case "preg2":
-            slytherin++;
+            puntajes.slytherin++;
             break;
         case "preg3":
-            ravenclaw++;
+            puntajes.ravenclaw++;
             break;
         case "preg4":
-            hufflepuff++;
+            puntajes.hufflepuff++;
             break;
     }
 
-    console.log(gryffindor, slytherin, ravenclaw, hufflepuff);
+    // console.log(puntajes.gryffindor, puntajes.slytherin, puntajes.ravenclaw, puntajes.hufflepuff);
 
-    return (gryffindor, slytherin, ravenclaw, hufflepuff)
 }
