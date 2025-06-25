@@ -1,11 +1,12 @@
 import { final } from "./js/puntosFinal.js";
 import { puntaje } from "./js/calcularPuntaje.js";
+export { mostrarResultadoFinal };
 
 let puntajes = {
-    gryffindor:0,
-    slytherin:0,  
-    ravenclaw:0,
-    hufflepuff:0,
+    gryffindor: 0,
+    slytherin: 0,
+    ravenclaw: 0,
+    hufflepuff: 0,
 }
 
 const pregunta = [
@@ -57,43 +58,63 @@ function mostrarPregunta() {
 
     for (let a = 1; a <= pregunta.length; a++) {
         const boton = document.createElement("button");
+
         const key = `preg${a}`;
         boton.innerText = actual[`preg${a}`];
-
+        boton.classList.add("button")
         boton.addEventListener("click", () => {
             console.log(`Elegiste: ${actual[`preg${a}`]}`);
             console.log(key);
             puntaje(key, puntajes)
             // console.log(gryffindor, slytherin, ravenclaw, hufflepuff);
-            
+
             indice++;
 
             if (indice < pregunta.length) {
                 mostrarPregunta();
             } else {
-                const nombreCasaFinal = final(puntajes.gryffindor, puntajes.slytherin, puntajes.ravenclaw, puntajes.hufflepuff)
+                const resultado = final(puntajes.gryffindor, puntajes.slytherin, puntajes.ravenclaw, puntajes.hufflepuff);
+
+                if (resultado) {
+                    mostrarResultadoFinal(resultado);
+                }
+
                 qatext.innerText = `Te pondré en... ${nombreCasaFinal}`;
                 listaBoton.innerHTML = "";
+                const aBack = document.createElement("a");
+                aBack.classList.add("button")
                 if (nombreCasaFinal === "Gryffindor") {
                     const img = document.createElement('img');
                     img.src = './assets/gryffindor.png';
                     img.width = 300;
+                    aBack.innerText = "Volver al inicio";
+                    aBack.setAttribute("href", "./index.html")
                     listaBoton.appendChild(img);
+                    listaBoton.appendChild(aBack);
                 } else if (nombreCasaFinal === "Slytherin") {
                     const img = document.createElement('img');
                     img.src = './assets/slytherin.png';
                     img.width = 300;
+                    aBack.innerText = "Volver al inicio";
+                    aBack.setAttribute("href", "./index.html")
                     listaBoton.appendChild(img);
+                    listaBoton.appendChild(aBack);
                 } else if (nombreCasaFinal === "Ravenclaw") {
                     const img = document.createElement('img');
                     img.src = './assets/ravenclaw.png';
                     img.width = 300;
+                    aBack.innerText = "Volver al inicio";
+                    aBack.setAttribute("href", "./index.html")
                     listaBoton.appendChild(img);
+                    listaBoton.appendChild(aBack);
                 } else if (nombreCasaFinal === "Hufflepuff") {
                     const img = document.createElement('img');
                     img.src = './assets/hufflepuff.png';
                     img.width = 300;
+                    aBack.innerText = "Volver al inicio";
+                    aBack.setAttribute("href", "./index.html")
                     listaBoton.appendChild(img);
+                    listaBoton.appendChild(aBack);
                 }
             }
         });
@@ -106,6 +127,24 @@ mostrarPregunta();
 
 
 
+function mostrarResultadoFinal(nombreCasaFinal) {
+    const qatext = document.getElementById("qatext");
+    const listaBoton = document.getElementById("button-container");
 
+    qatext.innerText = `Te pondré en... ${nombreCasaFinal}`;
+    listaBoton.innerHTML = "";
+
+    const aBack = document.createElement("a");
+    aBack.classList.add("button");
+    aBack.innerText = "Volver al inicio";
+    aBack.setAttribute("href", "./index.html");
+
+    const img = document.createElement('img');
+    img.src = `./assets/${nombreCasaFinal.toLowerCase()}.png`;
+    img.width = 300;
+
+    listaBoton.appendChild(img);
+    listaBoton.appendChild(aBack);
+}
 
 
