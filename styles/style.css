@@ -1,5 +1,5 @@
         body {
-            background-image: url('/TP1/assets/B1-background.jpg');
+            background-image: url('../assets/B1-background.jpg');
             background-size: cover;
         }
 
