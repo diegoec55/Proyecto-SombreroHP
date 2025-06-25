@@ -17,14 +17,10 @@ export function final(g, s, r, h) {
         .filter(([_, puntos]) => puntos === maxpuntos)
         .map(([casa]) => casa);
 
-    console.log(g, s, r, h);
-
     if (empatadas.length === 1) {
         resultadoCasa = empatadas[0];
-        console.log(`El ganador es: ${resultadoCasa}`);
         return resultadoCasa;
     } else {
-        console.log(`Empate entre: ${empatadas.join(" y ")}`);
         mostrarPreguntaDesempate(empatadas)
     }
 }

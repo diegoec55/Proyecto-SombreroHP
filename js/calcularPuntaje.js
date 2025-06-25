@@ -1,7 +1,5 @@
 
-
 export function puntaje(respuesta, puntajes) {
-    
     
     switch (respuesta) {
         case "preg1":
@@ -17,7 +15,4 @@ export function puntaje(respuesta, puntajes) {
             puntajes.hufflepuff++;
             break;
     }
-
-    // console.log(puntajes.gryffindor, puntajes.slytherin, puntajes.ravenclaw, puntajes.hufflepuff);
-
 }

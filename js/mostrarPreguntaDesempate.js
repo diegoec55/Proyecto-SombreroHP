@@ -20,7 +20,6 @@ export function mostrarPreguntaDesempate(casas) {
         preg3: "El conocimiento",
         preg4: "La justicia"
     };
-    console.log(casas);
 
     casas.forEach(casa => {
         const clave = clavePorCasa[casa];

@@ -63,10 +63,7 @@ function mostrarPregunta() {
         boton.innerText = actual[`preg${a}`];
         boton.classList.add("button")
         boton.addEventListener("click", () => {
-            console.log(`Elegiste: ${actual[`preg${a}`]}`);
-            console.log(key);
             puntaje(key, puntajes)
-            // console.log(gryffindor, slytherin, ravenclaw, hufflepuff);
 
             indice++;
 
